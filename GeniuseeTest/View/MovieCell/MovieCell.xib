@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Nunito-ExtraLight.ttf">
+            <string>Nunito-ExtraLight</string>
+        </array>
+        <array key="Nunito-Regular.ttf">
+            <string>Nunito-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="movieCell" rowHeight="160" id="KGk-i7-Jjw" customClass="MovieCell" customModule="GeniuseeTest" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="160"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="160"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="znq-Cx-Bqi">
+                        <rect key="frame" x="8" y="16" width="304" height="128"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.84999999999999998" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="posterTEMPL" translatesAutoresizingMaskIntoConstraints="NO" id="BoQ-cu-2jf">
+                                <rect key="frame" x="8" y="8" width="74.5" height="112"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="BoQ-cu-2jf" secondAttribute="height" multiplier="2:3" id="AcA-AP-8Ff"/>
+                                </constraints>
+                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="4lh-kZ-Adb">
+                                <rect key="frame" x="90.5" y="66.5" width="205.5" height="53.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Avengers" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fLc-AV-gJX">
+                                        <rect key="frame" x="0.0" y="0.0" width="205.5" height="26"/>
+                                        <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="19"/>
+                                        <color key="textColor" red="0.16862745098039217" green="0.16862745098039217" blue="0.17254901960784313" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vgn-n6-NrJ">
+                                        <rect key="frame" x="0.0" y="34" width="205.5" height="19.5"/>
+                                        <fontDescription key="fontDescription" name="Nunito-ExtraLight" family="Nunito" pointSize="14"/>
+                                        <color key="textColor" red="0.46666666666666667" green="0.4823529411764706" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="4lh-kZ-Adb" firstAttribute="leading" secondItem="BoQ-cu-2jf" secondAttribute="trailing" constant="8" id="0Q4-Zx-hQD"/>
+                            <constraint firstAttribute="trailing" secondItem="4lh-kZ-Adb" secondAttribute="trailing" constant="8" id="4Kn-bN-UW4"/>
+                            <constraint firstItem="4lh-kZ-Adb" firstAttribute="bottom" secondItem="BoQ-cu-2jf" secondAttribute="bottom" id="SpG-c6-kVc"/>
+                            <constraint firstItem="BoQ-cu-2jf" firstAttribute="top" secondItem="znq-Cx-Bqi" secondAttribute="top" constant="8" id="XRw-Kd-ZXH"/>
+                            <constraint firstItem="BoQ-cu-2jf" firstAttribute="leading" secondItem="znq-Cx-Bqi" secondAttribute="leading" constant="8" id="cGn-kQ-jBn"/>
+                            <constraint firstAttribute="bottom" secondItem="BoQ-cu-2jf" secondAttribute="bottom" constant="8" id="tim-Re-Q3e"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" red="0.92549019607843142" green="0.94117647058823528" blue="0.95294117647058818" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
+                <constraints>
+                    <constraint firstItem="znq-Cx-Bqi" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="Mtj-eF-Drt"/>
+                    <constraint firstAttribute="trailing" secondItem="znq-Cx-Bqi" secondAttribute="trailing" constant="8" id="TJV-Ga-EyS"/>
+                    <constraint firstAttribute="bottom" secondItem="znq-Cx-Bqi" secondAttribute="bottom" constant="16" id="Zxr-Tt-Zf9"/>
+                    <constraint firstItem="znq-Cx-Bqi" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="lsb-mi-Jpy"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="containerView" destination="znq-Cx-Bqi" id="dNh-nF-6UD"/>
+                <outlet property="descriptionLabel" destination="Vgn-n6-NrJ" id="Fsq-2H-ypy"/>
+                <outlet property="posterImageView" destination="BoQ-cu-2jf" id="VLj-5p-9b8"/>
+                <outlet property="titleLabel" destination="fLc-AV-gJX" id="uSR-RA-9pr"/>
+            </connections>
+            <point key="canvasLocation" x="5.7971014492753632" y="149.33035714285714"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="posterTEMPL" width="1000" height="1494"/>
+    </resources>
+</document>
