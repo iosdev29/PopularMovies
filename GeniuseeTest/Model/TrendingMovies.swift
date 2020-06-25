@@ -67,9 +67,11 @@ struct MovieCast: Codable {
 // MARK: - Cast
 struct Cast: Codable {
     let name: String
+    let image: String?
     
     enum CodingKeys: String, CodingKey {
         case name
+        case image = "profile_path"
     }
 }
 

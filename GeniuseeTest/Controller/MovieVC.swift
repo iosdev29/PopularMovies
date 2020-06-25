@@ -10,33 +10,41 @@ import UIKit
 
 class MovieVC: UIViewController {
     
+    // MARK: - Outlets
+    
     @IBOutlet weak var backgroundPoster: UIImageView!
     @IBOutlet weak var posterImageView: UIImageView!
-    @IBOutlet weak var containerView: UIView!
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var descriptionLabel: UILabel!
-    @IBOutlet weak var releaseDateLabel: UILabel!
-    @IBOutlet weak var collectionView: UICollectionView!
     
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var releaseDateLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var directorsLabel: UILabel!
+    
+    @IBOutlet weak var actorsCollectionView: UICollectionView!
+    @IBOutlet weak var genresCollectionView: UICollectionView!
+    
+    @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var containerViewTopConstraint: NSLayoutConstraint!
+    
+    // MARK: - Properties
     
     var movie: Movie!
     var genres: [String]?
-    var directors: [String]?
-    var cast: [String]?
+    
+    var cast: [(String, String)]?
     
     var movieCast: MovieCast? {
-        didSet(newValue) {
+        didSet {
             if movieCast != nil {
-                getCast(movieCast: movieCast!)
-                getDirectors(movieCast: movieCast!)
+                cast = getCast(movieCast: movieCast!)
+                configureCastLabels(directors: getDirectors(movieCast: movieCast!), cast: getCast(movieCast: movieCast!))
             }
         }
     }
     
-    var blurEffectView : UIVisualEffectView!
-    
     private var sizingCell: TagCell?
+    
+    // MARK: - Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,51 +53,76 @@ class MovieVC: UIViewController {
     }
     
     func configureViews() {
-        if let strUrl = movie.poster {
-            backgroundPoster.loadImageAsync(with: Constants.smallPosterURL + strUrl)
-            posterImageView.loadImageAsync(with: Constants.smallPosterURL + strUrl)
-        }
-        
-        nameLabel.text = movie.name
-        descriptionLabel.text = movie.description
-        releaseDateLabel.text = movie.date
-        
-        // add blur to backgroundPoster
-        if !UIAccessibility.isReduceTransparencyEnabled {
-            backgroundPoster.backgroundColor = .clear
-            
-            let blurEffect = UIBlurEffect(style: .light)
-            let blurEffectView = UIVisualEffectView(effect: blurEffect)
-            blurEffectView.frame = self.view.bounds
-            blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-            
-            backgroundPoster.addSubview(blurEffectView)
-        } else {
-            view.backgroundColor = .black
-        }
-        
-        posterImageView.layer.cornerRadius = 8
-        containerView.layer.masksToBounds = true
-        containerView.layer.cornerRadius = 16
-        
-        let height = heightForView(text: movie.name, font: UIFont.nunitoFont(.regular, ofSize: 30), width: self.view.bounds.width - 32)
-        containerViewTopConstraint.constant = height + 100
-        
-        // flow layout
-        let flow = UICollectionViewFlowLayout()
-        flow.sectionInset = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5)
-        collectionView?.setCollectionViewLayout(flow, animated: false)
-        
-        
-        let cellNib = UINib(nibName: "TagCell", bundle: nil)
-        collectionView.register(cellNib, forCellWithReuseIdentifier: "tagCell")
-        sizingCell = cellNib.instantiate(withOwner: nil, options: nil)[0] as? TagCell
+        configureData()
+        addBlurToBackground()
+        configureCollectionViews()
+        configureContainerView()
         
         guard let id = movie.id else {
             return
         }
-        
         fetchCast(movieId: id)
+    }
+    
+    // MARK: - Configuration
+    
+    func configureData() {
+        /// loading images
+        if let strUrl = movie.poster {
+            backgroundPoster.loadImageAsync(with: Constants.smallPosterURL + strUrl)
+            posterImageView.loadImageAsync(with: Constants.smallPosterURL + strUrl)
+        }
+        /// setting text properties
+        nameLabel.text = movie.name
+        descriptionLabel.text = movie.description
+        releaseDateLabel.text = movie.date
+    }
+    
+    // add blur to backgroundPoster
+    func addBlurToBackground() {
+        if !UIAccessibility.isReduceTransparencyEnabled {
+            backgroundPoster.backgroundColor = .clear
+            let blurEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .light))
+            blurEffectView.frame = self.view.bounds
+            blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+            backgroundPoster.addSubview(blurEffectView)
+        } else {
+            view.backgroundColor = .black
+        }
+    }
+    
+    func configureContainerView() {
+        posterImageView.layer.cornerRadius = 8
+        containerView.layer.cornerRadius = 16
+        
+        let height = heightForView(text: movie.name, font: UIFont.nunitoFont(.regular, ofSize: 30), width: self.view.bounds.width - 32)
+        containerViewTopConstraint.constant = height + 100
+    }
+    
+    func configureCollectionViews() {
+        /// genresCollectionView flow layout
+        let flow = UICollectionViewFlowLayout()
+        flow.sectionInset = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5)
+        genresCollectionView?.setCollectionViewLayout(flow, animated: false)
+        
+        /// register genresCellNib
+        let genresCellNib = UINib(nibName: "TagCell", bundle: nil)
+        genresCollectionView.register(genresCellNib, forCellWithReuseIdentifier: "tagCell")
+        sizingCell = genresCellNib.instantiate(withOwner: nil, options: nil)[0] as? TagCell
+        
+        /// register actorCellNib
+        let actorCellNib = UINib(nibName: "ActorCell", bundle: nil)
+        actorsCollectionView.register(actorCellNib, forCellWithReuseIdentifier: "actorCell")
+    }
+    
+    func configureCastLabels(directors: [String], cast: [(String, String)]) {
+        DispatchQueue.main.async {
+            directors.forEach { (name) in
+                self.directorsLabel.text = (self.directorsLabel.text ?? "") + name + "\n"
+            }
+            
+            self.actorsCollectionView.reloadData()
+        }
     }
     
     func heightForView(text:String, font:UIFont, width:CGFloat) -> CGFloat {
@@ -103,9 +136,7 @@ class MovieVC: UIViewController {
         return label.frame.height
     }
     
-    @IBAction func closePressed(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
-    }
+    // MARK: — Data fetch
     
     func fetchCast(movieId: Int) {
         Service.shared.fetchMovieCast(movieId: movieId) { (res, err) in
@@ -113,7 +144,7 @@ class MovieVC: UIViewController {
                 self.movieCast = res
             }
             if let err = err {
-                print("Search movies fetch failed", err)
+                print("Cast fetch failed", err)
             }
         }
     }
@@ -128,8 +159,18 @@ class MovieVC: UIViewController {
         return directors
     }
     
-    func getCast(movieCast: MovieCast) {
-        
+    func getCast(movieCast: MovieCast) -> [(String, String)] {
+        var cast = [(String, String)]()
+        movieCast.cast.forEach { (actor) in
+            cast.append((actor.name, actor.image ?? ""))
+        }
+        return cast
+    }
+    
+    // MARK: - Actions
+
+    @IBAction func closePressed(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
     }
     
 }
@@ -139,7 +180,11 @@ class MovieVC: UIViewController {
 extension MovieVC: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return genres?.count ?? 0
+        if collectionView == self.genresCollectionView {
+            return genres?.count ?? 0
+        } else {
+            return cast?.count ?? 0
+        }
     }
     
     func _configureCell(_ cell: TagCell?, for indexPath: IndexPath?) {
@@ -149,16 +194,33 @@ extension MovieVC: UICollectionViewDataSource, UICollectionViewDelegateFlowLayou
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "tagCell", for: indexPath) as? TagCell
-        
-        _configureCell(cell, for: indexPath)
-        return cell!
+        if collectionView == self.genresCollectionView {
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "tagCell", for: indexPath) as? TagCell else {
+                fatalError("Could not dequeue cell with identifier: TagCell")
+            }
+            _configureCell(cell, for: indexPath)
+            return cell
+        } else {
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "actorCell", for: indexPath) as? ActorCell else {
+                fatalError("Could not dequeue cell with identifier: ActorCell")
+            }
+            cell.actorNameLabel.text = cast?[indexPath.row].0
+            if let url = cast?[indexPath.row].1, url != "" {
+                cell.actorImageView.loadImageAsync(with: Constants.posterURL + url)
+            } else {
+                cell.actorImageView.image = UIImage(named: "posterTEMPL")
+            }
+            return cell
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        _configureCell(sizingCell, for: indexPath)
-        
-        return sizingCell?.intrinsicContentSize() ?? CGSize.zero
+        if collectionView == self.genresCollectionView {
+            _configureCell(sizingCell, for: indexPath)
+            return sizingCell?.intrinsicContentSize() ?? CGSize.zero
+        } else {
+            return CGSize(width: 120, height: 136)
+        }
     }
     
 }

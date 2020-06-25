@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Nunito-Regular.ttf">
+            <string>Nunito-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="actorCell" id="gTV-IL-0wX" customClass="ActorCell" customModule="GeniuseeTest" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XdI-Wg-MDY">
+                        <rect key="frame" x="20" y="8" width="80" height="80"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="XdI-Wg-MDY" secondAttribute="height" multiplier="1:1" id="JEa-xI-e8G"/>
+                            <constraint firstAttribute="height" constant="80" id="KRl-6d-3T2"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DV0-vl-TgY">
+                        <rect key="frame" x="4" y="92" width="112" height="19.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="112" id="wde-4w-V6F"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="14"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="XdI-Wg-MDY" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="8" id="0eb-9E-opz"/>
+                <constraint firstItem="DV0-vl-TgY" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="4" id="5D7-nL-bEv"/>
+                <constraint firstAttribute="trailing" secondItem="DV0-vl-TgY" secondAttribute="trailing" constant="4" id="ILA-fG-NRJ"/>
+                <constraint firstItem="DV0-vl-TgY" firstAttribute="centerX" secondItem="XdI-Wg-MDY" secondAttribute="centerX" id="hZQ-A1-V0t"/>
+                <constraint firstItem="DV0-vl-TgY" firstAttribute="top" secondItem="XdI-Wg-MDY" secondAttribute="bottom" constant="4" id="k1b-Sj-XdU"/>
+                <constraint firstItem="XdI-Wg-MDY" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="rJu-UV-6Tr"/>
+                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="DV0-vl-TgY" secondAttribute="bottom" constant="4" id="zse-Og-oxD"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <size key="customSize" width="120" height="120"/>
+            <connections>
+                <outlet property="actorImageView" destination="XdI-Wg-MDY" id="6f8-qh-vhI"/>
+                <outlet property="actorNameLabel" destination="DV0-vl-TgY" id="7aO-vC-Jvf"/>
+            </connections>
+            <point key="canvasLocation" x="188.40579710144928" y="164.73214285714286"/>
+        </collectionViewCell>
+    </objects>
+</document>

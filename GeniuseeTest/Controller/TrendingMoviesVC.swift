@@ -8,28 +8,34 @@
 
 import UIKit
 
-enum State {
-    case trending
-    case search
-}
-
 class TrendingMoviesVC: UIViewController {
     
+    // MARK: - Outlets
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     
-    // MARK: - Local variables
+    // MARK: - Properties
+    /// constant height for cell
+    let cellHeight : CGFloat = 160
     
+    /// page counters
     var pageMovies = 1
     var lastPageMovies = 1
-    
     var pageSearch = 1
     var lastPageSearch = 1
     
+    /// searchBar current text
     var searchTerm = ""
     
     var selectedMovieIndexPath: IndexPath?
-    var allGenres: [Genre]?
+        
+    var refreshControl = UIRefreshControl()
+    
+    /// TableView Content State
+    enum State {
+        case trending
+        case search
+    }
     
     var state: State = .trending {
         didSet {
@@ -42,8 +48,7 @@ class TrendingMoviesVC: UIViewController {
         }
     }
     
-    let cellHeight : CGFloat = 160
-    
+    // variables for fetched result
     var movies: [Movie] = [] {
         didSet {
             DispatchQueue.main.async {
@@ -68,14 +73,48 @@ class TrendingMoviesVC: UIViewController {
         }
     }
     
+    var allGenres: [Genre]?
+    
+    // MARK: - Life Cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.register(UINib(nibName: "MovieCell", bundle: nil), forCellReuseIdentifier: "movieCell")
-        fetchMovies(page: pageMovies)
-        fetchGenres()
+        configureTableView()
+        if Reachability.isConnectedToNetwork() {
+            fetchMovies(page: pageMovies)
+            fetchGenres()
+        } else {
+            showAlert()
+        }
     }
     
+    func configureTableView() {
+        tableView.register(UINib(nibName: "MovieCell", bundle: nil), forCellReuseIdentifier: "movieCell")
+        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
+        tableView.addSubview(refreshControl)
+    }
+    
+    func showAlert() {
+        let alert = UIAlertController(title: "Network is not availiable", message: "Check your internet and try again", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+        DispatchQueue.main.async {
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
+    
+    /// refresh data on pulling down tableView
+    @objc func refresh(_ sender: AnyObject) {
+        if state == .trending {
+            fetchMovies(page: 1)
+            fetchGenres()
+        } else {
+            DispatchQueue.main.async {
+                self.refreshControl.endRefreshing()
+            }
+        }
+    }
     
     // MARK: — Data fetch
     fileprivate func fetchMovies(page: Int) {
@@ -87,6 +126,9 @@ class TrendingMoviesVC: UIViewController {
             }
             if let err = err {
                 print("Trending movies fetch failed", err)
+            }
+            DispatchQueue.main.async {
+                self.refreshControl.endRefreshing()
             }
         }
     }
@@ -115,19 +157,6 @@ class TrendingMoviesVC: UIViewController {
         }
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        if segue.identifier == "goToMovie" {
-            let destView = segue.destination as! MovieVC
-            if let indexPath = selectedMovieIndexPath {
-                destView.movie = result[indexPath.row]
-                if let genres = result[indexPath.row].genres {
-                    destView.genres = getGenresForMovie(genresId: genres)
-                }
-            }
-        }
-    }
-    
     func getGenresForMovie(genresId: [Int]) -> [String]? {
         var genres = [String]()
         
@@ -141,7 +170,21 @@ class TrendingMoviesVC: UIViewController {
         return genres
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToMovie" {
+            let destView = segue.destination as! MovieVC
+            if let indexPath = selectedMovieIndexPath {
+                destView.movie = result[indexPath.row]
+                if let genres = result[indexPath.row].genres {
+                    destView.genres = getGenresForMovie(genresId: genres)
+                }
+            }
+        }
+    }
+    
 }
+
+// MARK: - UITableView Delegate & DataSource
 
 extension TrendingMoviesVC: UITableViewDelegate, UITableViewDataSource {
     
@@ -213,14 +256,15 @@ extension TrendingMoviesVC: UITableViewDelegate, UITableViewDataSource {
     
 }
 
+// MARK: - UISearchBar Delegate
 
 extension TrendingMoviesVC: UISearchBarDelegate {
-    
     // dismiss the keyboard
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         perform(#selector(hideKeyboardWithSearchBar), with: searchBar, afterDelay: 0)
     }
     
+    // searching movies
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchText == "" {
             perform(#selector(hideKeyboardWithSearchBar), with: searchBar, afterDelay: 0)
