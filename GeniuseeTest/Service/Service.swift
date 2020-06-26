@@ -44,7 +44,7 @@ class Service {
         guard let url = URL(string: urlString) else {
             return
         }
-        
+
         URLSession.shared.dataTask(with: url) { (data, resp, err) in
             guard let data = data else {
                 return

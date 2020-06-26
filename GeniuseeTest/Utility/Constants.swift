@@ -17,6 +17,7 @@ struct Constants {
     static let smallPosterURL = "https://image.tmdb.org/t/p/w500"
     static let genresURL = "https://api.themoviedb.org/3/genre/movie/list?api_key=\(api)&language=en-US"
     static let baseURL = "https://api.themoviedb.org/3/movie/"
+    
 }
 
 

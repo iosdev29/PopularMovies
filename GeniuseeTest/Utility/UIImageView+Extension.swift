@@ -27,7 +27,6 @@ extension UIImageView {
         // cancel prior task, if any
         weak var oldTask = currentTask
         currentTask = nil
-        oldTask?.cancel()
         
         // reset imageview's image
         self.image = nil

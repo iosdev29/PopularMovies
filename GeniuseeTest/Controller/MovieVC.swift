@@ -31,13 +31,13 @@ class MovieVC: UIViewController {
     var movie: Movie!
     var genres: [String]?
     
-    var cast: [(String, String)]?
+    var cast: [(name: String, photoUrl: String, gender: Int?)]?
     
     var movieCast: MovieCast? {
         didSet {
             if movieCast != nil {
                 cast = getCast(movieCast: movieCast!)
-                configureCastLabels(directors: getDirectors(movieCast: movieCast!), cast: getCast(movieCast: movieCast!))
+                configureCastLabels(directors: getDirectors(movieCast: movieCast!))
             }
         }
     }
@@ -46,8 +46,8 @@ class MovieVC: UIViewController {
     
     // MARK: - Life Cycle
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
         
         configureViews()
     }
@@ -94,6 +94,7 @@ class MovieVC: UIViewController {
     func configureContainerView() {
         posterImageView.layer.cornerRadius = 8
         containerView.layer.cornerRadius = 16
+        containerView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         
         let height = heightForView(text: movie.name, font: UIFont.nunitoFont(.regular, ofSize: 30), width: self.view.bounds.width - 32)
         containerViewTopConstraint.constant = height + 100
@@ -115,7 +116,7 @@ class MovieVC: UIViewController {
         actorsCollectionView.register(actorCellNib, forCellWithReuseIdentifier: "actorCell")
     }
     
-    func configureCastLabels(directors: [String], cast: [(String, String)]) {
+    func configureCastLabels(directors: [String]) {
         DispatchQueue.main.async {
             directors.forEach { (name) in
                 self.directorsLabel.text = (self.directorsLabel.text ?? "") + name + "\n"
@@ -125,8 +126,8 @@ class MovieVC: UIViewController {
         }
     }
     
-    func heightForView(text:String, font:UIFont, width:CGFloat) -> CGFloat {
-        let label:UILabel = UILabel(frame: CGRect(x: 0, y: 0, width: width, height: CGFloat.greatestFiniteMagnitude))
+    func heightForView(text:String, font: UIFont, width: CGFloat) -> CGFloat {
+        let label: UILabel = UILabel(frame: CGRect(x: 0, y: 0, width: width, height: CGFloat.greatestFiniteMagnitude))
         label.numberOfLines = 0
         label.lineBreakMode = NSLineBreakMode.byWordWrapping
         label.font = font
@@ -159,10 +160,10 @@ class MovieVC: UIViewController {
         return directors
     }
     
-    func getCast(movieCast: MovieCast) -> [(String, String)] {
-        var cast = [(String, String)]()
+    func getCast(movieCast: MovieCast) -> [(String, String, Int?)] {
+        var cast = [(String, String, Int)]()
         movieCast.cast.forEach { (actor) in
-            cast.append((actor.name, actor.image ?? ""))
+            cast.append((actor.name, actor.image ?? "", actor.gender ?? -1))
         }
         return cast
     }
@@ -208,7 +209,7 @@ extension MovieVC: UICollectionViewDataSource, UICollectionViewDelegateFlowLayou
             if let url = cast?[indexPath.row].1, url != "" {
                 cell.actorImageView.loadImageAsync(with: Constants.posterURL + url)
             } else {
-                cell.actorImageView.image = UIImage(named: "posterTEMPL")
+                cell.actorImageView.image = cast?[indexPath.row].gender == 1 ? UIImage(named: "femaleAvatar") : UIImage(named: "maleAvatar")
             }
             return cell
         }

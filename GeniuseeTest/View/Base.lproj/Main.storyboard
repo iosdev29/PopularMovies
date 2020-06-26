@@ -91,112 +91,154 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7LH-3u-Wkv">
                                 <rect key="frame" x="0.0" y="183" width="414" height="713"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="wuZ-9M-B5i">
-                                        <rect key="frame" x="16" y="80" width="382" height="431.5"/>
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cI9-HV-tGj">
+                                        <rect key="frame" x="0.0" y="84" width="414" height="629"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="np5-eV-Hdm">
-                                                <rect key="frame" x="0.0" y="0.0" width="382" height="29"/>
-                                                <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="21"/>
-                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c3p-ST-QrM">
-                                                <rect key="frame" x="0.0" y="37" width="382" height="23.5"/>
-                                                <fontDescription key="fontDescription" name="Nunito-ExtraLight" family="Nunito" pointSize="17"/>
-                                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Directors" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Lv-8z-Wmx">
-                                                <rect key="frame" x="0.0" y="68.5" width="382" height="29"/>
-                                                <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="21"/>
-                                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P9u-b9-FNU">
-                                                <rect key="frame" x="0.0" y="105.5" width="382" height="0.0"/>
-                                                <fontDescription key="fontDescription" name="Nunito-ExtraLight" family="Nunito" pointSize="17"/>
-                                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Actors" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Pv-p0-pto">
-                                                <rect key="frame" x="0.0" y="113.5" width="382" height="29"/>
-                                                <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="21"/>
-                                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="jew-hX-5hg">
-                                                <rect key="frame" x="0.0" y="150.5" width="382" height="136"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eQf-R7-yms">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="629"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="np5-eV-Hdm">
+                                                        <rect key="frame" x="16" y="8" width="382" height="29"/>
+                                                        <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="21"/>
+                                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c3p-ST-QrM">
+                                                        <rect key="frame" x="16" y="41" width="382" height="23.5"/>
+                                                        <fontDescription key="fontDescription" name="Nunito-ExtraLight" family="Nunito" pointSize="17"/>
+                                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Directors" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Lv-8z-Wmx">
+                                                        <rect key="frame" x="16" y="80.5" width="382" height="29"/>
+                                                        <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="21"/>
+                                                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P9u-b9-FNU">
+                                                        <rect key="frame" x="16" y="113.5" width="382" height="0.0"/>
+                                                        <fontDescription key="fontDescription" name="Nunito-ExtraLight" family="Nunito" pointSize="17"/>
+                                                        <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Actors" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Pv-p0-pto">
+                                                        <rect key="frame" x="16" y="129.5" width="382" height="29"/>
+                                                        <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="21"/>
+                                                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="jew-hX-5hg">
+                                                        <rect key="frame" x="16" y="174.5" width="382" height="136"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="136" id="HAy-na-9hw"/>
+                                                        </constraints>
+                                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Ugu-bl-UNm">
+                                                            <size key="itemSize" width="50" height="50"/>
+                                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                        </collectionViewFlowLayout>
+                                                        <cells>
+                                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="actorCell" id="57l-bb-6AI">
+                                                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="aAw-2r-QZu">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                                    <autoresizingMask key="autoresizingMask"/>
+                                                                </collectionViewCellContentView>
+                                                            </collectionViewCell>
+                                                        </cells>
+                                                        <connections>
+                                                            <outlet property="dataSource" destination="W7m-ve-2Yi" id="vlX-za-unx"/>
+                                                            <outlet property="delegate" destination="W7m-ve-2Yi" id="Fsl-b5-eed"/>
+                                                        </connections>
+                                                    </collectionView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Genres" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0jW-f6-U6v" userLabel="Genres">
+                                                        <rect key="frame" x="16" y="326.5" width="382" height="29"/>
+                                                        <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="21"/>
+                                                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="m7w-Yk-QPa">
+                                                        <rect key="frame" x="16" y="363.5" width="382" height="100"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="100" id="nOo-dh-rO1"/>
+                                                        </constraints>
+                                                        <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="xci-17-bry">
+                                                            <size key="itemSize" width="50" height="50"/>
+                                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                        </collectionViewFlowLayout>
+                                                        <cells>
+                                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="tagCell" id="wHO-GB-aI1">
+                                                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="3dR-QO-dLc">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                                    <autoresizingMask key="autoresizingMask"/>
+                                                                </collectionViewCellContentView>
+                                                            </collectionViewCell>
+                                                        </cells>
+                                                        <connections>
+                                                            <outlet property="dataSource" destination="W7m-ve-2Yi" id="pNi-vb-9YX"/>
+                                                            <outlet property="delegate" destination="W7m-ve-2Yi" id="p2x-T8-Kgd"/>
+                                                        </connections>
+                                                    </collectionView>
+                                                </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="136" id="HAy-na-9hw"/>
+                                                    <constraint firstAttribute="trailing" secondItem="jew-hX-5hg" secondAttribute="trailing" constant="16" id="2X1-5q-sha"/>
+                                                    <constraint firstAttribute="trailing" secondItem="m7w-Yk-QPa" secondAttribute="trailing" constant="16" id="6fE-np-fYQ"/>
+                                                    <constraint firstItem="c3p-ST-QrM" firstAttribute="leading" secondItem="eQf-R7-yms" secondAttribute="leading" constant="16" id="7CD-o1-pQu"/>
+                                                    <constraint firstAttribute="trailing" secondItem="P9u-b9-FNU" secondAttribute="trailing" constant="16" id="94C-Ra-EFD"/>
+                                                    <constraint firstItem="P9u-b9-FNU" firstAttribute="top" secondItem="0Lv-8z-Wmx" secondAttribute="bottom" constant="4" id="Bsb-yG-Faf"/>
+                                                    <constraint firstItem="9Pv-p0-pto" firstAttribute="top" secondItem="P9u-b9-FNU" secondAttribute="bottom" constant="16" id="Dup-Jn-0TG"/>
+                                                    <constraint firstItem="0jW-f6-U6v" firstAttribute="top" secondItem="jew-hX-5hg" secondAttribute="bottom" constant="16" id="F8n-pc-AVW"/>
+                                                    <constraint firstItem="m7w-Yk-QPa" firstAttribute="leading" secondItem="eQf-R7-yms" secondAttribute="leading" constant="16" id="Kub-ui-6RF"/>
+                                                    <constraint firstItem="np5-eV-Hdm" firstAttribute="leading" secondItem="eQf-R7-yms" secondAttribute="leading" constant="16" id="MKC-aY-eQ5"/>
+                                                    <constraint firstItem="P9u-b9-FNU" firstAttribute="leading" secondItem="eQf-R7-yms" secondAttribute="leading" constant="16" id="T07-0y-Fmc"/>
+                                                    <constraint firstItem="9Pv-p0-pto" firstAttribute="leading" secondItem="eQf-R7-yms" secondAttribute="leading" constant="16" id="TD6-ce-zpw"/>
+                                                    <constraint firstItem="0jW-f6-U6v" firstAttribute="leading" secondItem="eQf-R7-yms" secondAttribute="leading" constant="16" id="bww-Qc-tbN"/>
+                                                    <constraint firstItem="np5-eV-Hdm" firstAttribute="top" secondItem="eQf-R7-yms" secondAttribute="top" constant="8" id="doF-lH-pwk"/>
+                                                    <constraint firstAttribute="trailing" secondItem="np5-eV-Hdm" secondAttribute="trailing" constant="16" id="euj-AI-Wgk"/>
+                                                    <constraint firstItem="0Lv-8z-Wmx" firstAttribute="top" secondItem="c3p-ST-QrM" secondAttribute="bottom" constant="16" id="fZu-xV-sJZ"/>
+                                                    <constraint firstItem="m7w-Yk-QPa" firstAttribute="top" secondItem="0jW-f6-U6v" secondAttribute="bottom" constant="8" id="fdd-RL-eUb"/>
+                                                    <constraint firstItem="0Lv-8z-Wmx" firstAttribute="leading" secondItem="eQf-R7-yms" secondAttribute="leading" constant="16" id="jzi-la-SeO"/>
+                                                    <constraint firstItem="jew-hX-5hg" firstAttribute="top" secondItem="9Pv-p0-pto" secondAttribute="bottom" constant="16" id="s2n-zi-P1D"/>
+                                                    <constraint firstItem="c3p-ST-QrM" firstAttribute="top" secondItem="np5-eV-Hdm" secondAttribute="bottom" constant="4" id="sM4-4e-EJ6"/>
+                                                    <constraint firstAttribute="trailing" secondItem="c3p-ST-QrM" secondAttribute="trailing" constant="16" id="t8e-hl-pI1"/>
+                                                    <constraint firstAttribute="trailing" secondItem="0jW-f6-U6v" secondAttribute="trailing" constant="16" id="uef-k5-Cc8"/>
+                                                    <constraint firstAttribute="trailing" secondItem="0Lv-8z-Wmx" secondAttribute="trailing" constant="16" id="vme-Qj-doe"/>
+                                                    <constraint firstAttribute="trailing" secondItem="9Pv-p0-pto" secondAttribute="trailing" constant="16" id="xyp-un-K93"/>
+                                                    <constraint firstItem="jew-hX-5hg" firstAttribute="leading" secondItem="eQf-R7-yms" secondAttribute="leading" constant="16" id="z1X-cg-xbh"/>
                                                 </constraints>
-                                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Ugu-bl-UNm">
-                                                    <size key="itemSize" width="50" height="50"/>
-                                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                                </collectionViewFlowLayout>
-                                                <cells>
-                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="actorCell" id="57l-bb-6AI">
-                                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="aAw-2r-QZu">
-                                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                                            <autoresizingMask key="autoresizingMask"/>
-                                                        </collectionViewCellContentView>
-                                                    </collectionViewCell>
-                                                </cells>
-                                                <connections>
-                                                    <outlet property="dataSource" destination="W7m-ve-2Yi" id="vlX-za-unx"/>
-                                                    <outlet property="delegate" destination="W7m-ve-2Yi" id="Fsl-b5-eed"/>
-                                                </connections>
-                                            </collectionView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Genres" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0jW-f6-U6v" userLabel="Genres">
-                                                <rect key="frame" x="0.0" y="294.5" width="382" height="29"/>
-                                                <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="21"/>
-                                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="m7w-Yk-QPa">
-                                                <rect key="frame" x="0.0" y="331.5" width="382" height="100"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="100" id="nOo-dh-rO1"/>
-                                                </constraints>
-                                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="xci-17-bry">
-                                                    <size key="itemSize" width="50" height="50"/>
-                                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                                </collectionViewFlowLayout>
-                                                <cells>
-                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="tagCell" id="wHO-GB-aI1">
-                                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="3dR-QO-dLc">
-                                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                                            <autoresizingMask key="autoresizingMask"/>
-                                                        </collectionViewCellContentView>
-                                                    </collectionViewCell>
-                                                </cells>
-                                                <connections>
-                                                    <outlet property="dataSource" destination="W7m-ve-2Yi" id="pNi-vb-9YX"/>
-                                                    <outlet property="delegate" destination="W7m-ve-2Yi" id="p2x-T8-Kgd"/>
-                                                </connections>
-                                            </collectionView>
+                                            </view>
                                         </subviews>
-                                    </stackView>
+                                        <constraints>
+                                            <constraint firstItem="uYp-k9-h03" firstAttribute="trailing" secondItem="eQf-R7-yms" secondAttribute="trailing" id="57D-fn-533"/>
+                                            <constraint firstItem="eQf-R7-yms" firstAttribute="width" secondItem="cI9-HV-tGj" secondAttribute="width" id="9ho-Fj-G4G"/>
+                                            <constraint firstItem="eQf-R7-yms" firstAttribute="top" secondItem="uYp-k9-h03" secondAttribute="top" id="CaT-JY-Ic5"/>
+                                            <constraint firstItem="eQf-R7-yms" firstAttribute="bottom" secondItem="uYp-k9-h03" secondAttribute="bottom" constant="-64" id="TRj-tH-QHu"/>
+                                            <constraint firstItem="eQf-R7-yms" firstAttribute="height" secondItem="cI9-HV-tGj" secondAttribute="height" id="Uef-TA-8u8"/>
+                                            <constraint firstItem="uYp-k9-h03" firstAttribute="leading" secondItem="eQf-R7-yms" secondAttribute="leading" id="rA6-Rs-MnH"/>
+                                        </constraints>
+                                        <viewLayoutGuide key="contentLayoutGuide" id="uYp-k9-h03"/>
+                                        <viewLayoutGuide key="frameLayoutGuide" id="N5S-TZ-fgw"/>
+                                    </scrollView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Oah-xb-nMS">
-                                        <rect key="frame" x="117.5" y="8" width="280.5" height="64"/>
+                                        <rect key="frame" x="117.5" y="8" width="280.5" height="60"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Release: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N9v-9z-0yT">
-                                                <rect key="frame" x="0.0" y="19.5" width="72" height="25"/>
+                                                <rect key="frame" x="0.0" y="17.5" width="72" height="25"/>
                                                 <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="18"/>
                                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hFF-lh-mFo">
-                                                <rect key="frame" x="88" y="20.5" width="40" height="23.5"/>
+                                                <rect key="frame" x="88" y="18.5" width="40" height="23.5"/>
                                                 <fontDescription key="fontDescription" name="Nunito-ExtraLight" family="Nunito" pointSize="17"/>
                                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -205,6 +247,7 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="hFF-lh-mFo" secondAttribute="trailing" id="2VU-Kv-fHl"/>
+                                            <constraint firstAttribute="height" constant="60" id="4Lj-W8-EBO"/>
                                             <constraint firstItem="hFF-lh-mFo" firstAttribute="centerY" secondItem="Oah-xb-nMS" secondAttribute="centerY" id="O9n-6c-aRd"/>
                                             <constraint firstItem="N9v-9z-0yT" firstAttribute="centerY" secondItem="Oah-xb-nMS" secondAttribute="centerY" id="Vqt-iN-i2X"/>
                                             <constraint firstItem="N9v-9z-0yT" firstAttribute="leading" secondItem="Oah-xb-nMS" secondAttribute="leading" id="dNI-XF-POL"/>
@@ -214,12 +257,13 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.92549019610000005" green="0.94117647059999998" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstItem="wuZ-9M-B5i" firstAttribute="leading" secondItem="7LH-3u-Wkv" secondAttribute="leading" constant="16" id="BBe-yc-UJy"/>
-                                    <constraint firstAttribute="trailing" secondItem="wuZ-9M-B5i" secondAttribute="trailing" constant="16" id="HmS-B9-M24"/>
-                                    <constraint firstItem="wuZ-9M-B5i" firstAttribute="top" secondItem="7LH-3u-Wkv" secondAttribute="top" constant="80" id="I3A-4e-b8i"/>
+                                    <constraint firstItem="cI9-HV-tGj" firstAttribute="width" secondItem="7LH-3u-Wkv" secondAttribute="width" id="6wu-7k-fRc"/>
                                     <constraint firstItem="Oah-xb-nMS" firstAttribute="top" secondItem="7LH-3u-Wkv" secondAttribute="top" constant="8" id="Otv-W7-nAR"/>
+                                    <constraint firstItem="cI9-HV-tGj" firstAttribute="centerX" secondItem="7LH-3u-Wkv" secondAttribute="centerX" id="U6Q-X2-wCz"/>
+                                    <constraint firstAttribute="bottom" secondItem="cI9-HV-tGj" secondAttribute="bottom" id="bur-gg-88r"/>
                                     <constraint firstAttribute="trailing" secondItem="Oah-xb-nMS" secondAttribute="trailing" constant="16" id="cVQ-wP-hOQ"/>
-                                    <constraint firstItem="Oah-xb-nMS" firstAttribute="bottom" secondItem="wuZ-9M-B5i" secondAttribute="top" constant="-8" id="l7i-Wu-dfE"/>
+                                    <constraint firstItem="cI9-HV-tGj" firstAttribute="top" secondItem="Oah-xb-nMS" secondAttribute="bottom" constant="16" id="dJ1-pa-xaU"/>
+                                    <constraint firstItem="eQf-R7-yms" firstAttribute="width" secondItem="7LH-3u-Wkv" secondAttribute="width" id="lSV-bg-MDl"/>
                                 </constraints>
                             </view>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="posterTEMPL" translatesAutoresizingMaskIntoConstraints="NO" id="zyP-zr-K7U">
